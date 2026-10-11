@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Jennifer Aniston Tribute</title>
+<meta name="description" content="Send a message to the fan tribute team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="preloader"><div class="mono">JA</div><div class="bar"><span></span></div><small>A Tribute</small></div>
+<header>
+  <a href="index.html" class="logo">JENNIFER <em>ANISTON</em></a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav><ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Biography</a></li>
+    <li><a href="career.html">Career</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="awards.html">Awards</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul></nav>
+</header>
+
+<section class="banner" style="background-image:url('images/call-me-crazy.jpg');padding:0 5vw 70px">
+  <div class="inner">
+    <span class="kicker">Contact</span>
+    <h1>Say <em style="color:var(--gold);font-style:italic">Hello</em></h1>
+    <p>Questions, corrections, or just love for Jen? Drop a note below.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container contact-wrap">
+    <div class="contact-info reveal">
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="kicker">Get In Touch</span>
+        <h2>We'd Love to <em>Hear From You</em></h2>
+      </div>
+      <p>This is an unofficial fan tribute, maintained by admirers for admirers. Whether you want to suggest a photo for the gallery, flag a correction, or simply share which Jennifer performance means the most to you — the inbox is open.</p>
+      <div class="contact-line"><span class="dot"></span> General enquiries &amp; feedback</div>
+      <div class="contact-line"><span class="dot"></span> Gallery submissions &amp; credits</div>
+      <div class="contact-line"><span class="dot"></span> Press &amp; collaboration requests</div>
+      <div class="contact-line"><span class="dot"></span> Response time: usually within a few days</div>
+      <p style="margin-top:26px;font-size:.82rem;color:#6f6a61">Note: this form is a front-end demonstration and does not transmit data anywhere.</p>
+    </div>
+    <form id="fanForm" class="reveal" data-delay="1" novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="f-name">Your Name</label>
+          <input type="text" id="f-name" placeholder="Rachel Green" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email Address</label>
+          <input type="email" id="f-email" placeholder="you@example.com" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-topic">Topic</label>
+        <select id="f-topic">
+          <option>General feedback</option>
+          <option>Gallery suggestion</option>
+          <option>Correction</option>
+          <option>Press enquiry</option>
+          <option>Just saying hi</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" placeholder="Could this BE any more exciting to write?" required></textarea>
+      </div>
+      <button type="submit" class="btn solid">Send Message</button>
+      <div class="form-msg" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+<footer>
+<div class="foot-grid">
+  <div>
+    <h4>Jennifer Aniston</h4>
+    <p>An unofficial fan tribute celebrating the life, career, timeless elegance, creative work and generosity of one of Hollywood’s most beloved actresses.</p>
+  </div>
+  <div>
+    <h4>Explore</h4>
+    <ul>
+      <li><a href="about.html">Biography</a></li>
+      <li><a href="career.html">Film &amp; Television</a></li>
+      <li><a href="gallery.html">Photo Gallery</a></li>
+      <li><a href="awards.html">Awards &amp; Honors</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Her Work</h4>
+    <ul>
+      <li><a href="brand.html">LolaVie Products</a></li>
+      <li><a href="brand.html#products">Brand Story</a></li>
+      <li><a href="brand.html#vip">VIP Fan Circle</a></li>
+      <li><a href="philanthropy.html">Philanthropy</a></li>
+    </ul>
+  </div>
+  <div class="foot-social">
+    <h4>Connect</h4>
+    <div class="foot-social-links">
+      <a href="https://www.instagram.com/jenniferaniston/" target="_blank" rel="noopener noreferrer"><span>IG</span> Instagram</a>
+      <a href="https://www.facebook.com/JenniferAniston/" target="_blank" rel="noopener noreferrer"><span>FB</span> Facebook</a>
+      <a href="https://www.instagram.com/lolavie/" target="_blank" rel="noopener noreferrer"><span>LV</span> LolaVie</a>
+    </div>
+    <a class="foot-vip" href="brand.html#vip">Join the VIP Fan Circle</a>
+  </div>
+</div>
+  <div class="foot-bottom">
+    <span>© <span id="year"></span> JA Tribute. An unofficial fan site — not affiliated with Jennifer Aniston.</span>
+    <span>Crafted with admiration.</span>
+  </div>
+</footer>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>
