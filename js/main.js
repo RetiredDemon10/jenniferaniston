@@ -26,16 +26,46 @@
   var burger = document.querySelector(".burger");
   var nav = document.querySelector("nav");
   if (burger && nav) {
+    function setMobileNavOpen(open) {
+      burger.classList.toggle("open", open);
+      nav.classList.toggle("open", open);
+      burger.setAttribute("aria-expanded", String(open));
+      burger.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      document.body.style.overflow = open ? "hidden" : "";
+    }
+
     burger.addEventListener("click", function () {
-      burger.classList.toggle("open");
-      nav.classList.toggle("open");
-      document.body.style.overflow = nav.classList.contains("open") ? "hidden" : "";
+      setMobileNavOpen(!nav.classList.contains("open"));
     });
     nav.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function () {
-        burger.classList.remove("open");
-        nav.classList.remove("open");
-        document.body.style.overflow = "";
+        setMobileNavOpen(false);
+      });
+    });
+
+    nav.querySelectorAll(".nav-dropdown").forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".nav-dropdown-toggle");
+      if (!toggle) return;
+      toggle.addEventListener("click", function () {
+        var open = !dropdown.classList.contains("open");
+        dropdown.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      nav.querySelectorAll(".nav-dropdown.open").forEach(function (dropdown) {
+        if (dropdown.contains(event.target)) return;
+        dropdown.classList.remove("open");
+        dropdown.querySelector(".nav-dropdown-toggle").setAttribute("aria-expanded", "false");
+      });
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      setMobileNavOpen(false);
+      nav.querySelectorAll(".nav-dropdown.open").forEach(function (dropdown) {
+        dropdown.classList.remove("open");
+        dropdown.querySelector(".nav-dropdown-toggle").setAttribute("aria-expanded", "false");
       });
     });
   }

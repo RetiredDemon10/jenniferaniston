@@ -52,26 +52,42 @@ a{color:inherit;text-decoration:none}
 /* ---------- Navigation ---------- */
 header{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:26px 5vw;display:flex;align-items:center;justify-content:space-between;
+  padding:20px 4vw;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  background:rgba(13,13,16,.76);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
   transition:all .45s var(--ease);
 }
 header.scrolled{
-  padding:14px 5vw;background:rgba(13,13,16,.88);
-  backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,164,92,.15);
+  padding:13px 4vw;background:rgba(13,13,16,.94);
+  backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,164,92,.24);
 }
-.logo{font-family:var(--serif);font-size:1.35rem;letter-spacing:.28em;color:var(--ivory)}
+.logo{flex:0 0 auto;font-family:var(--serif);font-size:1.2rem;letter-spacing:.2em;color:var(--ivory)}
 .logo em{color:var(--gold);font-style:normal}
-nav ul{display:flex;gap:38px;list-style:none}
+nav{margin-left:auto}
+nav ul{display:flex;align-items:center;gap:clamp(10px,1.2vw,18px);list-style:none;padding:0;margin:0}
 nav a{
-  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+  font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:#f0ece4;
   position:relative;padding:6px 0;transition:color .3s;
 }
 nav a::after{
   content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
   background:var(--gold);transition:width .35s var(--ease);
 }
-nav a:hover,nav a.active{color:var(--ivory)}
+nav a:hover,nav a.active{color:#fff}
 nav a:hover::after,nav a.active::after{width:100%}
+.nav-dropdown{position:relative;display:flex;align-items:center;gap:5px}
+.nav-dropdown-toggle{display:grid;place-items:center;width:24px;height:30px;padding:0;border:0;background:transparent;color:var(--gold);cursor:pointer}
+.nav-dropdown-toggle span{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease}
+.nav-dropdown.open>.nav-dropdown-toggle span{transform:translateY(2px) rotate(225deg)}
+nav .nav-submenu{
+  position:absolute;top:calc(100% + 14px);left:-14px;z-index:5;display:none;min-width:205px;
+  flex-direction:column;align-items:stretch;gap:2px;padding:7px;background:#111114;
+  border:1px solid rgba(201,164,92,.35);box-shadow:0 16px 36px rgba(0,0,0,.38);text-align:left
+}
+.nav-dropdown:hover>.nav-submenu,.nav-dropdown:focus-within>.nav-submenu,.nav-dropdown.open>.nav-submenu{display:flex}
+nav .nav-submenu a{display:block;padding:11px 12px;color:#f0ece4;font-size:.68rem;letter-spacing:.07em;text-transform:none;white-space:nowrap}
+nav .nav-submenu a:hover,nav .nav-submenu a.active{background:rgba(201,164,92,.12);color:#fff}
+nav .nav-submenu a::after{display:none}
 .burger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:0;z-index:1002}
 .burger span{width:28px;height:2px;background:var(--ivory);transition:.35s var(--ease)}
 .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
@@ -363,6 +379,24 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:70px 5vw 
 
 /* responsive */
 @media (max-width:1020px){
+  header{padding:17px 5vw}
+  header.scrolled{padding:13px 5vw}
+  .burger{display:flex}
+  nav{position:fixed;inset:0;z-index:1001;margin:0;display:flex;align-items:center;justify-content:center;
+    padding:90px 24px 36px;background:rgba(13,13,16,.98);backdrop-filter:blur(14px);
+    transform:translateX(100%);transition:transform .4s var(--ease);overflow-y:auto}
+  nav.open{transform:none}
+  nav>ul{flex-direction:column;gap:18px;text-align:center}
+  nav>ul>li>a{font-size:.92rem;letter-spacing:.16em}
+  .nav-dropdown{display:grid;grid-template-columns:auto 34px;justify-content:center;gap:0 4px}
+  .nav-dropdown>.nav-parent{justify-self:end}
+  .nav-dropdown-toggle{justify-self:start}
+  nav .nav-submenu{position:static;grid-column:1/-1;min-width:0;align-items:center;gap:2px;padding:6px 0 0;
+    border:0;background:transparent;box-shadow:none;text-align:center}
+  nav .nav-submenu a{padding:9px 12px;color:#d7d1c8;font-size:.78rem}
+  nav .nav-submenu a:hover,nav .nav-submenu a.active{background:transparent;color:var(--gold)}
+}
+@media (max-width:1020px){
   .cards,.film-grid{grid-template-columns:repeat(2,1fr)}
   .award-grid{grid-template-columns:1fr}
   .gallery-grid{columns:2}
@@ -393,14 +427,8 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:70px 5vw 
    BRAND, PHILANTHROPY & VIP COMMUNITY
    ============================================================ */
 
-nav ul{
-  gap:clamp(8px,1.35vw,22px);
-}
-
-nav a{
-  font-size:.62rem;
-  letter-spacing:.14em;
-}
+nav ul{gap:clamp(8px,1vw,16px)}
+nav a{font-size:.67rem;letter-spacing:.09em}
 
 .brand-banner::after,
 .philanthropy-banner::after{
@@ -429,6 +457,15 @@ nav a{
 .brand-stats{
   padding:50px 5vw;
 }
+
+.shop-promo{padding:54px 5vw;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.shop-promo-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.shop-promo h2{margin:8px 0 0;font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400}
+.shop-promo h2 em{color:var(--gold)}
+.shop-about-link{color:var(--ivory);font-size:.68rem;letter-spacing:.08em}
+.shop-about-link span{color:var(--gold);padding-left:6px}
+.shop-banner::after{background:linear-gradient(90deg,rgba(13,13,16,.82),rgba(13,13,16,.32)),linear-gradient(0deg,rgba(13,13,16,.45),transparent)}
+.shop-page{padding-top:70px}
 
 .product-grid{
   display:grid;
@@ -556,7 +593,7 @@ nav a{
 
 .product-kicker{
   display:block;
-  color:var(--gold);
+  color:#82633b;
   font-size:.62rem;
   font-weight:600;
   letter-spacing:.18em;
@@ -568,11 +605,12 @@ nav a{
   font-family:'Playfair Display',serif;
   font-size:1.55rem;
   font-weight:500;
+  color:#29251f;
   margin-bottom:11px;
 }
 
 .product-body p{
-  color:var(--muted,#716a60);
+  color:#625b52;
   font-size:.9rem;
   line-height:1.75;
   margin-bottom:18px;

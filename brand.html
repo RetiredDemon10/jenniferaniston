@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brand & Products — Jennifer Aniston Tribute</title>
+<title>Brand & Business — Jennifer Aniston Tribute</title>
 <meta name="description" content="Explore Jennifer Aniston's LolaVie haircare brand, Echo Films, business ventures, social profiles and VIP fan community.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -13,12 +13,12 @@
 <div id="preloader"><div class="mono">JA</div><div class="bar"><span></span></div><small>A Tribute</small></div>
 <header>
   <a href="index.html" class="logo">JENNIFER <em>ANISTON</em></a>
-  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <nav><ul>
+  <button class="burger" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav id="primary-nav"><ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">Biography</a></li>
     <li><a href="career.html">Career</a></li>
-    <li><a href="brand.html" class="active">Brand</a></li>
+    <li class="nav-dropdown"><a href="brand.html" class="nav-parent active">Brand</a><button class="nav-dropdown-toggle" type="button" aria-label="Show Brand links" aria-expanded="false"><span aria-hidden="true"></span></button><ul class="nav-submenu"><li><a href="brand.html" class="active" aria-current="page">Brand Overview</a></li><li><a href="shop.html">Shop LolaVie</a></li></ul></li>
     <li><a href="philanthropy.html">Giving</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="awards.html">Awards</a></li>
@@ -77,150 +77,10 @@
   <span>LolaVie</span><span>Echo Films</span><span>Glossing Detangler</span><span>Clean Haircare</span><span>Vegan</span><span>Cruelty-Free</span><span>Founder &amp; Creative Director</span>
 </div></div>
 
-<!-- ================= PRODUCTS ================= -->
-<section id="products">
-  <div class="container">
-    <div class="sec-head center reveal">
-      <span class="kicker">Shop LolaVie</span>
-      <h2>Everyday Hair, <em>Elevated</em></h2>
-      <p>Shop a considered edit of LolaVie favorites, created by Jennifer Aniston.</p>
-    </div>
-
-    <div class="shop-toolbar reveal">
-      <span>Haircare essentials <span class="shop-count">06 products</span></span>
-    </div>
-    <button class="cart-toggle" type="button" aria-label="Open shopping bag, 0 items" aria-controls="shop-cart" aria-expanded="false">
-      <span class="cart-icon" aria-hidden="true"></span>
-      <span class="cart-count" aria-live="polite">0</span>
-    </button>
-
-    <div class="product-grid">
-      <article class="product-card reveal" data-product-id="glossing-detangler" data-product-name="Glossing Detangler" data-price="29">
-        <div class="product-badge bestseller">#1 Best Seller</div>
-        <div class="product-visual">
-          <img src="https://www.lolavie.com/cdn/shop/files/gd-new-carousel-01.jpg?v=1759941803&width=900" alt="LolaVie Glossing Detangler bottle" loading="lazy">
-        </div>
-        <div class="product-body">
-          <span class="product-kicker">Multitasking Leave-In Spray</span>
-          <h3>Glossing Detangler</h3>
-          <p>The brand’s hero product: detangles, hydrates, smooths, adds shine and helps protect hair from heat styling.</p>
-          <div class="product-tags">
-            <span>Shine</span><span>Hydration</span><span>450°F Protection</span>
-          </div>
-          <div class="product-buy"><strong>$29</strong><button class="add-to-cart" type="button">Add to bag</button></div>
-          <a class="product-official" href="https://www.lolavie.com/products/glossing-detangler" target="_blank" rel="noopener noreferrer">Details at LolaVie</a>
-        </div>
-      </article>
-
-      <article class="product-card reveal" data-delay="1" data-product-id="restorative-shampoo" data-product-name="Restorative Shampoo" data-price="32">
-        <div class="product-badge">Bestseller</div>
-        <div class="product-visual alt">
-          <img src="https://www.lolavie.com/cdn/shop/files/rs-new-carousel-01.jpg?v=1759942485&width=900" alt="LolaVie Restorative Shampoo bottle" loading="lazy">
-        </div>
-        <div class="product-body">
-          <span class="product-kicker">Bond-Building Cleanse</span>
-          <h3>Restorative Shampoo</h3>
-          <p>A daily, bond-building shampoo that gently cleanses while helping repair the look of damage.</p>
-          <div class="product-tags">
-            <span>Daily Cleanse</span><span>Resilience</span><span>Sulfate-Free</span>
-          </div>
-          <div class="product-buy"><strong>$32</strong><button class="add-to-cart" type="button">Add to bag</button></div>
-          <a class="product-official" href="https://www.lolavie.com/products/restorative-shampoo" target="_blank" rel="noopener noreferrer">Details at LolaVie</a>
-        </div>
-      </article>
-
-      <article class="product-card reveal" data-delay="2" data-product-id="restorative-conditioner" data-product-name="Restorative Conditioner" data-price="32">
-        <div class="product-badge">Bond Care</div>
-        <div class="product-visual">
-          <img src="https://www.lolavie.com/cdn/shop/files/rc-new-carousel-01.jpg?v=1759942557&width=900" alt="LolaVie Restorative Conditioner bottle" loading="lazy">
-        </div>
-        <div class="product-body">
-          <span class="product-kicker">Moisture &amp; Bond Care</span>
-          <h3>Restorative Conditioner</h3>
-          <p>A nourishing conditioner that helps repair the look of damage and leaves hair feeling smoother and soft.</p>
-          <div class="product-tags">
-            <span>Moisture</span><span>Softness</span><span>Color-Safe</span>
-          </div>
-          <div class="product-buy"><strong>$32</strong><button class="add-to-cart" type="button">Add to bag</button></div>
-          <a class="product-official" href="https://www.lolavie.com/products/restorative-conditioner" target="_blank" rel="noopener noreferrer">Details at LolaVie</a>
-        </div>
-      </article>
-
-      <article class="product-card reveal" data-product-id="perfecting-leave-in" data-product-name="Perfecting Leave-In" data-price="33">
-        <div class="product-badge">Frizz Control</div>
-        <div class="product-visual alt">
-          <img src="https://www.lolavie.com/cdn/shop/files/pli-new-carousel-01.jpg?v=1759942007&width=900" alt="LolaVie Perfecting Leave-In bottle" loading="lazy">
-        </div>
-        <div class="product-body">
-          <span class="product-kicker">Do-It-All Leave-In</span>
-          <h3>Perfecting Leave-In</h3>
-          <p>A leave-in conditioner that hydrates, strengthens and protects against heat and frizz.</p>
-          <div class="product-tags">
-            <span>450°F Protection</span><span>72-Hour Frizz Care</span><span>Hydration</span>
-          </div>
-          <div class="product-buy"><strong>$33</strong><button class="add-to-cart" type="button">Add to bag</button></div>
-          <a class="product-official" href="https://www.lolavie.com/products/perfecting-leave-in-conditioner" target="_blank" rel="noopener noreferrer">Details at LolaVie</a>
-        </div>
-      </article>
-
-      <article class="product-card reveal" data-delay="1" data-product-id="scalp-serum" data-product-name="Let There Be Hair Scalp Serum" data-price="49">
-        <div class="product-badge">Scalp Care</div>
-        <div class="product-visual">
-          <img src="https://www.lolavie.com/cdn/shop/files/ltbhss-carousel-1.jpg?v=1764713561&width=900" alt="LolaVie Let There Be Hair Scalp Serum bottle" loading="lazy">
-        </div>
-        <div class="product-body">
-          <span class="product-kicker">Daily Scalp Treatment</span>
-          <h3>Let There Be Hair Scalp Serum</h3>
-          <p>A lightweight daily serum designed to support scalp health and fuller-looking hair over time.</p>
-          <div class="product-tags">
-            <span>Scalp Care</span><span>Fullness</span><span>Fast-Absorbing</span>
-          </div>
-          <div class="product-buy"><strong>$49</strong><button class="add-to-cart" type="button">Add to bag</button></div>
-          <a class="product-official" href="https://www.lolavie.com/products/let-there-be-hair-scalp-serum" target="_blank" rel="noopener noreferrer">Details at LolaVie</a>
-        </div>
-      </article>
-
-      <article class="product-card reveal" data-delay="2" data-product-id="speed-dry-spray" data-product-name="Speed Dry Heat Protectant Spray" data-price="30">
-        <div class="product-badge new">Jen's New Favorite</div>
-        <div class="product-visual warm">
-          <img src="https://www.lolavie.com/cdn/shop/files/speed-dry-heat-carousel-01.jpg?v=1773876463&width=900" alt="LolaVie Speed Dry Heat Protectant Spray bottle" loading="lazy">
-        </div>
-        <div class="product-body">
-          <span class="product-kicker">Heat Styling Essential</span>
-          <h3>Speed Dry Heat Protectant Spray</h3>
-          <p>A heat-protective styling spray designed to help cut down blow-dry time and prep hair for styling.</p>
-          <div class="product-tags">
-            <span>Heat Care</span><span>Faster Drying</span><span>Styling Prep</span>
-          </div>
-          <div class="product-buy"><strong>$30</strong><button class="add-to-cart" type="button">Add to bag</button></div>
-          <a class="product-official" href="https://www.lolavie.com/products/speed-dry-heat-protectant-spray" target="_blank" rel="noopener noreferrer">Details at LolaVie</a>
-        </div>
-      </article>
-    </div>
-
-    <aside class="shop-cart" id="shop-cart" aria-label="Shopping bag" hidden>
-      <div class="cart-heading"><div><span class="kicker">Your selection</span><h3>Shopping Bag</h3></div><button class="cart-close" type="button" aria-label="Close shopping bag">×</button></div>
-      <div class="cart-items" aria-live="polite"></div>
-      <div class="cart-empty">Your bag is waiting for a favorite.</div>
-      <div class="cart-footer"><div><span>Subtotal</span><strong class="cart-subtotal">$0.00</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="checkout-button" type="button" disabled>Continue to checkout</button></div>
-    </aside>
-
-    <dialog class="checkout-modal" aria-labelledby="checkout-title">
-      <form class="checkout-form" id="checkout-form">
-        <button class="checkout-close" type="button" aria-label="Close checkout">×</button>
-        <span class="kicker">LolaVie · Checkout preview</span>
-        <h2 id="checkout-title">Your <em>details</em></h2>
-        <p class="checkout-note">This tribute-site demo does not process payments or send orders to LolaVie.</p>
-        <div class="checkout-order" aria-live="polite"></div>
-        <label for="checkout-email">Email address</label>
-        <input id="checkout-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-        <label for="checkout-name">Full name</label>
-        <input id="checkout-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
-        <button class="checkout-button" type="submit">Review demo order</button>
-        <div class="checkout-success" role="status" hidden></div>
-        <a class="checkout-official" href="https://www.lolavie.com/collections/award-winning-haircare" target="_blank" rel="noopener noreferrer">Shop securely at LolaVie ↗</a>
-      </form>
-    </dialog>
+<section class="shop-promo">
+  <div class="container shop-promo-inner reveal">
+    <div><span class="kicker">LolaVie Haircare</span><h2>Shop the <em>collection</em></h2></div>
+    <a href="shop.html" class="btn solid">Explore LolaVie Shop <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -402,8 +262,8 @@
     <div>
       <h4>Her Work</h4>
       <ul>
-        <li><a href="brand.html">LolaVie Products</a></li>
-        <li><a href="brand.html#products">Brand Story</a></li>
+        <li><a href="shop.html">Shop LolaVie</a></li>
+        <li><a href="brand.html">Brand Story</a></li>
         <li><a href="brand.html#vip">VIP Fan Circle</a></li>
         <li><a href="philanthropy.html">Philanthropy</a></li>
       </ul>

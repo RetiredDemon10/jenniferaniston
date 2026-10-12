@@ -13,12 +13,14 @@
 <div id="preloader"><div class="mono">JA</div><div class="bar"><span></span></div><small>A Tribute</small></div>
 <header>
   <a href="index.html" class="logo">JENNIFER <em>ANISTON</em></a>
-  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <nav><ul>
+  <button class="burger" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav id="primary-nav"><ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">Biography</a></li>
     <li><a href="career.html">Career</a></li>
-    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li class="nav-dropdown"><a href="brand.html" class="nav-parent">Brand</a><button class="nav-dropdown-toggle" type="button" aria-label="Show Brand links" aria-expanded="false"><span aria-hidden="true"></span></button><ul class="nav-submenu"><li><a href="brand.html">Brand Overview</a></li><li><a href="shop.html">Shop LolaVie</a></li></ul></li>
+    <li><a href="philanthropy.html">Giving</a></li>
+    <li><a href="gallery.html" class="active" aria-current="page">Gallery</a></li>
     <li><a href="awards.html">Awards</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul></nav>
