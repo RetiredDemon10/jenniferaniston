@@ -226,6 +226,21 @@
     });
   }
 
+  /* ---------- Help request form (static demo) ---------- */
+  var helpRequestForm = document.getElementById("helpRequestForm");
+  if (helpRequestForm) {
+    helpRequestForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!helpRequestForm.reportValidity()) return;
+
+      var name = helpRequestForm.querySelector("#help-name").value.trim();
+      var message = helpRequestForm.querySelector(".form-msg");
+      message.className = "form-msg success";
+      message.textContent = "Thank you, " + name + ". This demo did not send or store your request. Please use one of the official support links on this page to contact an organization directly.";
+      helpRequestForm.reset();
+    });
+  }
+
   /* ---------- LolaVie shop demo ---------- */
   var productCards = document.querySelectorAll(".product-card[data-product-id]");
   var cartPanel = document.getElementById("shop-cart");
