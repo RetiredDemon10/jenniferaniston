@@ -348,6 +348,32 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .help-request .hero-cta{margin-top:24px}
 .help-request .form-msg{line-height:1.65;letter-spacing:0}
 
+/* ---------- Private access modal ---------- */
+.cta-group{
+  display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:34px;
+}
+.private-modal{
+  position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.78);backdrop-filter:blur(6px);
+}
+.private-modal.open{display:flex}
+.private-panel{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:6px;
+  padding:42px;max-width:420px;width:90%;text-align:center;
+}
+.private-panel h3{font-family:var(--serif);font-size:1.4rem;margin-bottom:18px}
+.muted-small{color:var(--muted);font-size:.84rem;margin-bottom:18px}
+.private-modal input{
+  width:100%;background:var(--bg);border:1px solid rgba(201,164,92,.2);color:var(--ivory);
+  padding:14px 16px;font-family:var(--sans);font-size:.88rem;
+}
+.cta-actions{display:flex;gap:16px;justify-content:center;margin-top:14px}
+.cta-actions .btn{min-width:140px}
+.close-modal{
+  display:block;margin-top:24px;font-size:.64rem;letter-spacing:.2em;color:var(--muted);
+}
+.close-modal:hover{color:var(--ivory)}
+
 /* ---------- Footer ---------- */
 footer{border-top:1px solid var(--line);background:var(--bg-2);padding:70px 5vw 34px}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;max-width:1200px;margin:0 auto 50px}

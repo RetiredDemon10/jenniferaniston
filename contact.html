@@ -34,6 +34,41 @@
   </div>
 </section>
 
+
+
+<!-- ============ PRIVATE ACCESS CTA ============ -->
+<section class="center">
+  <div class="container reveal">
+    <div class="sec-head center">
+      <span class="kicker">Exclusive Access</span>
+      <h2>Want to Talk to <em>Jennifer</em> Privately?</h2>
+      <p>Enter your access code to request a private conversation. No code? Message an admin.</p>
+    </div>
+    <div class="cta-group">
+      <button type="button" class="btn" id="privateBtn">Talk to Jennifer Privately</button>
+      <a href="https://wa.link/0qyg1q" class="btn solid" target="_blank" rel="noopener noreferrer">Message Admin</a>
+    </div>
+  </div>
+</section>
+
+<!-- Private access modal -->
+<div class="private-modal" id="privateModal" role="dialog" aria-modal="true" aria-labelledby="privateModalTitle">
+  <div class="private-panel">
+    <h3 id="privateModalTitle">Enter Access Code</h3>
+    <p class="muted-small">Please enter your access code to request a private conversation.</p>
+    <form id="privateForm">
+      <input type="password" id="accessCode" name="accessCode" placeholder="Access code" autocomplete="off" required>
+      <div class="form-msg" id="privateMsg"></div>
+      <div class="cta-actions">
+        <button type="submit" class="btn solid">Submit</button>
+        <button type="button" class="btn" id="privateClose">Cancel</button>
+      </div>
+      <a href="https://wa.link/0qyg1q" class="close-modal">Don't have a code? Message admin</a>
+    </form>
+  </div>
+</div>
+
+
 <section>
   <div class="container contact-wrap">
     <div class="contact-info reveal">

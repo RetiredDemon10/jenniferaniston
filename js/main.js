@@ -447,6 +447,53 @@
     renderShopCart();
   }
 
+  /* ---------- Private access modal ---------- */
+  var privateBtn = document.getElementById("privateBtn");
+  var privateModal = document.getElementById("privateModal");
+  var privateForm = document.getElementById("privateForm");
+  var privateMsg = document.getElementById("privateMsg");
+  var privateClose = document.getElementById("privateClose");
+
+  if (privateBtn && privateModal) {
+    privateBtn.addEventListener("click", function () {
+      privateModal.classList.add("open");
+      privateMsg.textContent = "";
+      privateForm.reset();
+      document.body.style.overflow = "hidden";
+    });
+
+    function closePrivate() {
+      privateModal.classList.remove("open");
+      privateMsg.textContent = "";
+      privateForm.reset();
+      document.body.style.overflow = "";
+    }
+
+    if (privateClose) privateClose.addEventListener("click", closePrivate);
+
+    privateModal.addEventListener("click", function (e) {
+      if (e.target === privateModal) closePrivate();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && privateModal.classList.contains("open")) closePrivate();
+    });
+
+    if (privateForm) {
+      privateForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var code = privateForm.querySelector("#accessCode").value.trim();
+        if (!code) {
+          privateMsg.className = "form-msg error";
+          privateMsg.textContent = "Please enter your access code.";
+          return;
+        }
+        privateMsg.className = "form-msg error";
+        privateMsg.textContent = "Access code not recognised. If you don't have a code, please message an admin.";
+      });
+    }
+  }
+
   /* ---------- Footer year ---------- */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
