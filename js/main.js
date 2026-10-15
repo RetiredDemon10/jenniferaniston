@@ -439,7 +439,7 @@
         if (!checkoutForm.reportValidity()) return;
         var customerName = checkoutForm.querySelector("[name='name']").value.trim();
         var success = checkoutForm.querySelector(".checkout-success");
-        success.textContent = "Thanks, " + customerName + ". Your demo order is ready to review. No payment was taken and no order was placed.";
+        success.textContent = "Thanks, " + customerName + ". Your order is ready to review. Message support.";
         success.hidden = false;
       });
     }
