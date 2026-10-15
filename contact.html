@@ -46,7 +46,8 @@
     </div>
     <div class="cta-group">
       <button type="button" class="btn" id="privateBtn">Talk to Jennifer Privately</button>
-      <a href="https://wa.link/0qyg1q" class="btn solid" target="_blank" rel="noopener noreferrer">Message Admin</a>
+       <button type="button" class="btn solid" id="vipMembershipBtn">Join the VIP Fan Circle</button>
+      <!-- <a href="https://wa.link/0qyg1q" class="btn solid" target="_blank" rel="noopener noreferrer">Message Admin</a> -->
     </div>
   </div>
 </section>
@@ -63,7 +64,7 @@
         <button type="submit" class="btn solid">Submit</button>
         <button type="button" class="btn" id="privateClose">Cancel</button>
       </div>
-      <a href="https://wa.link/0qyg1q" class="close-modal">Don't have a code? Message admin</a>
+      <a href="https://wa.link/0qyg1q" class="close-modal">Don't have a code? Contact Support</a>
     </form>
   </div>
 </div>
@@ -168,6 +169,90 @@ window.smartsupp||(function(d) {
 })(document);
 </script>
 <noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+
+
+
+<!-- VIP Membership Modal -->
+<div class="private-modal" id="vipMembershipModal" role="dialog" aria-modal="true" aria-labelledby="vipMembershipModalTitle">
+  <div class="private-panel" style="max-width: 500px; text-align: left;">
+    <h3 id="vipMembershipModalTitle" style="text-align: center;">VIP Membership</h3>
+    <p class="muted-small" style="text-align: center; margin-bottom: 24px;">Please provide your details and upload your VIP membership card.</p>
+    <form id="vipMembershipForm" enctype="multipart/form-data" novalidate>
+      <div class="field">
+        <label for="vipMemberName">Full Name</label>
+        <input type="text" id="vipMemberName" name="vipMemberName" placeholder="Your full name" required>
+      </div>
+      <div class="field">
+        <label for="vipMemberCard">VIP Membership Card</label>
+        <input type="file" id="vipMemberCard" name="vipMemberCard" accept="image/*,.pdf" required>
+        <small class="muted-small" style="margin-top: 8px; display: block; font-size: 0.75rem;">Accepted formats: JPG, PNG, PDF</small>
+      </div>
+      <div class="form-msg" id="vipMembershipMsg"></div>
+      <div class="cta-actions" style="margin-top: 20px;">
+        <button type="submit" class="btn solid">Submit</button>
+        <button type="button" class="btn" id="vipMembershipClose">Cancel</button>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <p class="muted-small" style="margin-bottom: 10px; font-size: 0.75rem;">Don't have a membership card?</p>
+        <a href="https://wa.link/0qyg1q" class="close-modal" style="margin-top: 0; display: inline-block; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; letter-spacing: 0.1em; font-size: 0.7rem;">Contact Support</a>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+  var vipBtn = document.getElementById("vipMembershipBtn");
+  var vipModal = document.getElementById("vipMembershipModal");
+  var vipForm = document.getElementById("vipMembershipForm");
+  var vipMsg = document.getElementById("vipMembershipMsg");
+  var vipClose = document.getElementById("vipMembershipClose");
+  if (vipBtn && vipModal) {
+    vipBtn.addEventListener("click", function () {
+      vipModal.classList.add("open");
+      if (vipMsg) vipMsg.textContent = "";
+      if (vipForm) vipForm.reset();
+      document.body.style.overflow = "hidden";
+    });
+    function closeVip() {
+      vipModal.classList.remove("open");
+      if (vipMsg) vipMsg.textContent = "";
+      if (vipForm) vipForm.reset();
+      document.body.style.overflow = "";
+    }
+    if (vipClose) vipClose.addEventListener("click", closeVip);
+    vipModal.addEventListener("click", function (e) {
+      if (e.target === vipModal) closeVip();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && vipModal.classList.contains("open")) closeVip();
+    });
+    if (vipForm) {
+      vipForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var nameInput = document.getElementById("vipMemberName");
+        var cardInput = document.getElementById("vipMemberCard");
+        var name = nameInput ? nameInput.value.trim() : "";
+        var file = cardInput ? cardInput.files[0] : null;
+        if (!name) {
+          if (vipMsg) { vipMsg.className = "form-msg error"; vipMsg.textContent = "Please enter your name."; }
+          if (nameInput) nameInput.focus();
+          return;
+        }
+        if (!file) {
+          if (vipMsg) { vipMsg.className = "form-msg error"; vipMsg.textContent = "Please upload your VIP membership card."; }
+          return;
+        }
+        if (vipMsg) { vipMsg.className = "form-msg success"; vipMsg.textContent = "Membership card uploaded. We'll verify and contact you soon."; }
+        setTimeout(closeVip, 1500);
+      });
+    }
+  }
+})();
+</script>
+
+
 
 </body>
 </html>
