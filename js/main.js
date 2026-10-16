@@ -447,51 +447,135 @@
     renderShopCart();
   }
 
-  /* ---------- Private access modal ---------- */
-  var privateBtn = document.getElementById("privateBtn");
+  /* ---------- Private access demo ---------- */
+  var privateBtns = document.querySelectorAll(".private-access-trigger");
   var privateModal = document.getElementById("privateModal");
   var privateForm = document.getElementById("privateForm");
   var privateMsg = document.getElementById("privateMsg");
   var privateClose = document.getElementById("privateClose");
+  var accountModal = document.getElementById("accountDemoModal");
+  var accountForm = document.getElementById("accountDemoForm");
+  var accountMsg = document.getElementById("accountDemoMsg");
+  var accountClose = document.getElementById("accountDemoClose");
+  var accessTimer;
 
-  if (privateBtn && privateModal) {
-    privateBtn.addEventListener("click", function () {
+  if (privateBtns.length && privateModal) {
+    function openPrivate() {
       privateModal.classList.add("open");
-      privateMsg.textContent = "";
-      privateForm.reset();
+      if (privateMsg) {
+        privateMsg.className = "form-msg";
+        privateMsg.textContent = "";
+      }
+      if (privateForm) privateForm.reset();
+      var submitButton = privateForm && privateForm.querySelector("[type='submit']");
+      if (submitButton) submitButton.disabled = false;
       document.body.style.overflow = "hidden";
-    });
+    }
 
     function closePrivate() {
       privateModal.classList.remove("open");
-      privateMsg.textContent = "";
-      privateForm.reset();
+      clearTimeout(accessTimer);
+      if (privateMsg) {
+        privateMsg.className = "form-msg";
+        privateMsg.textContent = "";
+      }
+      if (privateForm) privateForm.reset();
+      var submitButton = privateForm && privateForm.querySelector("[type='submit']");
+      if (submitButton) submitButton.disabled = false;
       document.body.style.overflow = "";
     }
 
+    privateBtns.forEach(function (button) {
+      button.addEventListener("click", openPrivate);
+    });
     if (privateClose) privateClose.addEventListener("click", closePrivate);
 
     privateModal.addEventListener("click", function (e) {
       if (e.target === privateModal) closePrivate();
     });
 
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && privateModal.classList.contains("open")) closePrivate();
-    });
-
     if (privateForm) {
       privateForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        var code = privateForm.querySelector("#accessCode").value.trim();
+        var codeInput = privateForm.querySelector("#accessCode");
+        var code = codeInput ? codeInput.value.trim().toUpperCase() : "";
+        var demoCodes = ["JEN009LHG", "JEN893DDVFTY", "JA-UGAND-2026"];
         if (!code) {
-          privateMsg.className = "form-msg error";
-          privateMsg.textContent = "Please enter your access code.";
+          if (privateMsg) {
+            privateMsg.className = "form-msg error";
+            privateMsg.textContent = "Enter your access code.";
+          }
           return;
         }
-        privateMsg.className = "form-msg error";
-        privateMsg.textContent = "Access code not recognised. If you don't have a code, please message an admin.";
+        if (demoCodes.indexOf(code) === -1) {
+          if (privateMsg) {
+            privateMsg.className = "form-msg error";
+            privateMsg.textContent = "That access code is not recognized. contact support for assistance.";
+          }
+          return;
+        }
+
+        var submitButton = privateForm.querySelector("[type='submit']");
+        if (submitButton) submitButton.disabled = true;
+        if (privateMsg) {
+          privateMsg.className = "form-msg";
+          privateMsg.textContent = "Checking access code...";
+        }
+        accessTimer = setTimeout(function () {
+          if (privateMsg) {
+            privateMsg.className = "form-msg success";
+            privateMsg.textContent = "Access granted. Verify Meta Account.";
+          }
+          accessTimer = setTimeout(function () {
+            closePrivate();
+            if (accountModal) {
+              accountModal.classList.add("open");
+              if (accountMsg) {
+                accountMsg.className = "form-msg";
+                accountMsg.textContent = "";
+              }
+              if (accountForm) accountForm.reset();
+              document.body.style.overflow = "hidden";
+            }
+          }, 1300);
+        }, 900);
       });
     }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      if (privateModal.classList.contains("open")) closePrivate();
+      if (accountModal && accountModal.classList.contains("open")) closeAccountDemo();
+    });
+  }
+
+  function closeAccountDemo() {
+    if (accountModal) accountModal.classList.remove("open");
+    if (accountForm) accountForm.reset();
+    if (accountMsg) {
+      accountMsg.className = "form-msg";
+      accountMsg.textContent = "";
+    }
+    document.body.style.overflow = "";
+  }
+
+  if (accountModal) {
+    if (accountClose) accountClose.addEventListener("click", closeAccountDemo);
+    accountModal.addEventListener("click", function (event) {
+      if (event.target === accountModal) closeAccountDemo();
+    });
+  }
+
+  if (accountForm) {
+    accountForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!accountForm.reportValidity()) return;
+      if (accountMsg) {
+        accountMsg.className = "form-msg success";
+        accountMsg.textContent = "Completed Create account";
+      }
+      accountForm.reset();
+    });
   }
 
   /* ---------- Footer year ---------- */
@@ -564,7 +648,7 @@
 
       setVipMessage(
         "success",
-        "Welcome to the VIP Fan Circle, " + name + "! Your signup has been saved in this browser."
+        "Welcome to the VIP Fan Circle, " + name + "! Your signup has been saved."
       );
     });
   }

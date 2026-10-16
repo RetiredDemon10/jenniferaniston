@@ -363,6 +363,9 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 }
 .private-panel h3{font-family:var(--serif);font-size:1.4rem;margin-bottom:18px}
 .muted-small{color:var(--muted);font-size:.84rem;margin-bottom:18px}
+.demo-code-note{margin:0 0 18px;color:var(--muted);font-size:.78rem;line-height:1.8}
+.demo-code-note code{color:var(--gold);white-space:nowrap}
+.demo-name-label{display:block;margin:0 0 8px;text-align:left;color:var(--muted);font-size:.75rem}
 .private-modal input{
   width:100%;background:var(--bg);border:1px solid rgba(201,164,92,.2);color:var(--ivory);
   padding:14px 16px;font-family:var(--sans);font-size:.88rem;

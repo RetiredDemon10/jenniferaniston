@@ -157,12 +157,12 @@
 <section class="center">
   <div class="container reveal">
     <div class="sec-head center">
-      <span class="kicker">Exclusive Access</span>
-      <h2>Want to Talk to <em>Jennifer</em> Privately?</h2>
-      <p>Enter your access code to request a private conversation. No code? Message an admin.</p>
+      <span class="kicker">Fan-Site Prototype</span>
+      <h2>Private Access <em>Demo</em></h2>
+      <p>This unofficial fan-site demo does not provide access to or contact Jennifer Aniston.</p>
     </div>
     <div class="cta-group">
-      <button type="button" class="btn" id="privateBtn">Talk to Jennifer Privately</button>
+      <button type="button" class="btn private-access-trigger">Open Access Demo</button>
       <a href="https://wa.link/0qyg1q" class="btn solid" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
     </div>
   </div>
@@ -171,16 +171,32 @@
 <!-- Private access modal -->
 <div class="private-modal" id="privateModal" role="dialog" aria-modal="true" aria-labelledby="privateModalTitle">
   <div class="private-panel">
-    <h3 id="privateModalTitle">Enter Access Code</h3>
-    <p class="muted-small">Please enter your access code to request a private conversation.</p>
+    <h3 id="privateModalTitle">Enter Demo Code</h3>
+    <p class="muted-small">Prototype only. These public codes do not grant real access.</p>
+    <p class="demo-code-note">Demo codes: <code>FAN-DEMO</code>, <code>TRIBUTE-DEMO</code>, <code>JA-DEMO-2026</code></p>
     <form id="privateForm">
-      <input type="password" id="accessCode" name="accessCode" placeholder="Access code" autocomplete="off" required>
+      <input type="text" id="accessCode" name="accessCode" placeholder="Enter a demo code" autocomplete="off" required>
       <div class="form-msg" id="privateMsg"></div>
       <div class="cta-actions">
         <button type="submit" class="btn solid">Submit</button>
         <button type="button" class="btn" id="privateClose">Cancel</button>
       </div>
-      <a href="https://wa.link/0qyg1q" class="close-modal">Don't have a code? Message admin</a>
+    </form>
+  </div>
+</div>
+
+<div class="private-modal" id="accountDemoModal" role="dialog" aria-modal="true" aria-labelledby="accountDemoTitle">
+  <div class="private-panel">
+    <h3 id="accountDemoTitle">Create a Demo Account</h3>
+    <p class="muted-small">This fan-site prototype does not create accounts or contact Jennifer Aniston. Your display name is not sent or stored.</p>
+    <form id="accountDemoForm">
+      <label class="demo-name-label" for="accountDemoName">Display name</label>
+      <input type="text" id="accountDemoName" name="displayName" maxlength="40" autocomplete="off" required>
+      <div class="form-msg" id="accountDemoMsg" aria-live="polite"></div>
+      <div class="cta-actions">
+        <button type="submit" class="btn solid">Create Demo Account</button>
+        <button type="button" class="btn" id="accountDemoClose">Close</button>
+      </div>
     </form>
   </div>
 </div>

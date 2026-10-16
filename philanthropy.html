@@ -40,7 +40,7 @@
       <p class="sig">“There is nothing more rewarding than making someone else’s life better.”</p>
       <div style="margin-top:30px">
         <!-- <a href="https://wa.link/0qyg1q" class="btn solid">Join Fans Supporting Good Causes</a> -->
-         <button type="button" class="btn" id="privateBtn">Talk to Jennifer Privately</button>
+         <button type="button" class="btn private-access-trigger">Talk to Jennifer Privately</button>
       </div>
     </div>
     <div class="frame reveal" data-delay="1">
@@ -254,7 +254,7 @@
       <p>Discover the brand Jennifer founded and join the VIP fan community celebrating her creative and charitable life.</p>
     </div>
     <div class="hero-cta" style="justify-content:center">
-    <button type="button" class="btn" id="privateBtn">Talk to Jennifer Privately</button>
+    <button type="button" class="btn private-access-trigger">Talk to Jennifer Privately</button>
        <button type="button" class="btn solid" id="vipMembershipBtn">Join the VIP Fan Circle</button>
       <!-- <a href="brand.html#vip" class="btn">Join VIP Fan Circle</a> -->
     </div>
@@ -265,15 +265,31 @@
 <div class="private-modal" id="privateModal" role="dialog" aria-modal="true" aria-labelledby="privateModalTitle">
   <div class="private-panel">
     <h3 id="privateModalTitle">Enter Access Code</h3>
-    <p class="muted-small">Please enter your access code to request a private conversation.</p>
+    <p class="muted-small"></p>
+   
     <form id="privateForm">
-      <input type="password" id="accessCode" name="accessCode" placeholder="Access code" autocomplete="off" required>
+      <input type="text" id="accessCode" name="accessCode" placeholder="Enter an access code" autocomplete="off" required>
       <div class="form-msg" id="privateMsg"></div>
       <div class="cta-actions">
         <button type="submit" class="btn solid">Submit</button>
         <button type="button" class="btn" id="privateClose">Cancel</button>
       </div>
-      <a href="https://wa.link/0qyg1q" class="close-modal">Don't have a code? Contact Support</a>
+    </form>
+  </div>
+</div>
+
+<div class="private-modal" id="accountDemoModal" role="dialog" aria-modal="true" aria-labelledby="accountDemoTitle">
+  <div class="private-panel">
+    <h3 id="accountDemoTitle">Create an Account</h3>
+    <p class="muted-small"></p>
+    <form id="accountDemoForm">
+      <label class="demo-name-label" for="accountDemoName">Display name</label>
+      <input type="text" id="accountDemoName" name="displayName" maxlength="40" autocomplete="off" required>
+      <div class="form-msg" id="accountDemoMsg" aria-live="polite"></div>
+      <div class="cta-actions">
+        <button type="submit" class="btn solid">Create Account</button>
+        <button type="button" class="btn" id="accountDemoClose">Close</button>
+      </div>
     </form>
   </div>
 </div>
