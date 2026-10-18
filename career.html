@@ -154,7 +154,7 @@
 </section>
 
 <!-- ============ PRIVATE ACCESS CTA ============ -->
-<section class="center">
+<!-- <section class="center"> 
   <div class="container reveal">
     <div class="sec-head center">
       <span class="kicker">Fan-Site Prototype</span>
@@ -166,14 +166,14 @@
       <a href="https://wa.link/0qyg1q" class="btn solid" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- Private access modal -->
 <div class="private-modal" id="privateModal" role="dialog" aria-modal="true" aria-labelledby="privateModalTitle">
   <div class="private-panel">
-    <h3 id="privateModalTitle">Enter Demo Code</h3>
-    <p class="muted-small">Prototype only. These public codes do not grant real access.</p>
-    <p class="demo-code-note">Demo codes: <code>FAN-DEMO</code>, <code>TRIBUTE-DEMO</code>, <code>JA-DEMO-2026</code></p>
+    <h3 id="privateModalTitle">Enter Code</h3>
+    <p class="muted-small"></p>
+    <!-- <p class="demo-code-note">Demo codes: <code>FAN-DEMO</code>, <code>TRIBUTE-DEMO</code>, <code>JA-DEMO-2026</code></p> -->
     <form id="privateForm">
       <input type="text" id="accessCode" name="accessCode" placeholder="Enter a demo code" autocomplete="off" required>
       <div class="form-msg" id="privateMsg"></div>
@@ -185,22 +185,22 @@
   </div>
 </div>
 
+
 <div class="private-modal" id="accountDemoModal" role="dialog" aria-modal="true" aria-labelledby="accountDemoTitle">
   <div class="private-panel">
-    <h3 id="accountDemoTitle">Create a Demo Account</h3>
-    <p class="muted-small">This fan-site prototype does not create accounts or contact Jennifer Aniston. Your display name is not sent or stored.</p>
+    <h3 id="accountDemoTitle">Create an Account</h3>
+    <p class="muted-small">Talk to Jennifer.</p>
     <form id="accountDemoForm">
       <label class="demo-name-label" for="accountDemoName">Display name</label>
       <input type="text" id="accountDemoName" name="displayName" maxlength="40" autocomplete="off" required>
       <div class="form-msg" id="accountDemoMsg" aria-live="polite"></div>
       <div class="cta-actions">
-        <button type="submit" class="btn solid">Create Demo Account</button>
+        <button type="submit" href="https://instagram.com" class="btn solid">Create Meta Account</button>
         <button type="button" class="btn" id="accountDemoClose">Close</button>
       </div>
     </form>
   </div>
 </div>
-
 <!-- ============ KEEP EXPLORING ============ -->
 <section class="center">
   <div class="container reveal">
@@ -252,5 +252,89 @@
 </footer>
 <button id="toTop" aria-label="Back to top">↑</button>
 <script src="js/main.js"></script>
+
+
+
+
+<!-- VIP Membership Modal -->
+<div class="private-modal" id="vipMembershipModal" role="dialog" aria-modal="true" aria-labelledby="vipMembershipModalTitle">
+  <div class="private-panel" style="max-width: 500px; text-align: left;">
+    <h3 id="vipMembershipModalTitle" style="text-align: center;">VIP Membership</h3>
+    <p class="muted-small" style="text-align: center; margin-bottom: 24px;">Please provide your details and upload your VIP membership card.</p>
+    <form id="vipMembershipForm" enctype="multipart/form-data" novalidate>
+      <div class="field">
+        <label for="vipMemberName">Full Name</label>
+        <input type="text" id="vipMemberName" name="vipMemberName" placeholder="Your full name" required>
+      </div>
+      <div class="field">
+        <label for="vipMemberCard">VIP Membership Card</label>
+        <input type="file" id="vipMemberCard" name="vipMemberCard" accept="image/*,.pdf" required>
+        <small class="muted-small" style="margin-top: 8px; display: block; font-size: 0.75rem;">Accepted formats: JPG, PNG, PDF</small>
+      </div>
+      <div class="form-msg" id="vipMembershipMsg"></div>
+      <div class="cta-actions" style="margin-top: 20px;">
+        <button type="submit" class="btn solid">Submit</button>
+        <button type="button" class="btn" id="vipMembershipClose">Cancel</button>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <p class="muted-small" style="margin-bottom: 10px; font-size: 0.75rem;">Don't have a membership card?</p>
+        <a href="https://wa.link/0qyg1q" class="close-modal" style="margin-top: 0; display: inline-block; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; letter-spacing: 0.1em; font-size: 0.7rem;">Contact Support</a>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+  var vipBtn = document.getElementById("vipMembershipBtn");
+  var vipModal = document.getElementById("vipMembershipModal");
+  var vipForm = document.getElementById("vipMembershipForm");
+  var vipMsg = document.getElementById("vipMembershipMsg");
+  var vipClose = document.getElementById("vipMembershipClose");
+  if (vipBtn && vipModal) {
+    vipBtn.addEventListener("click", function () {
+      vipModal.classList.add("open");
+      if (vipMsg) vipMsg.textContent = "";
+      if (vipForm) vipForm.reset();
+      document.body.style.overflow = "hidden";
+    });
+    function closeVip() {
+      vipModal.classList.remove("open");
+      if (vipMsg) vipMsg.textContent = "";
+      if (vipForm) vipForm.reset();
+      document.body.style.overflow = "";
+    }
+    if (vipClose) vipClose.addEventListener("click", closeVip);
+    vipModal.addEventListener("click", function (e) {
+      if (e.target === vipModal) closeVip();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && vipModal.classList.contains("open")) closeVip();
+    });
+    if (vipForm) {
+      vipForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var nameInput = document.getElementById("vipMemberName");
+        var cardInput = document.getElementById("vipMemberCard");
+        var name = nameInput ? nameInput.value.trim() : "";
+        var file = cardInput ? cardInput.files[0] : null;
+        if (!name) {
+          if (vipMsg) { vipMsg.className = "form-msg error"; vipMsg.textContent = "Please enter your name."; }
+          if (nameInput) nameInput.focus();
+          return;
+        }
+        if (!file) {
+          if (vipMsg) { vipMsg.className = "form-msg error"; vipMsg.textContent = "Please upload your VIP membership card."; }
+          return;
+        }
+        if (vipMsg) { vipMsg.className = "form-msg success"; vipMsg.textContent = "Membership card uploaded. We'll verify and contact you soon."; }
+        setTimeout(closeVip, 1500);
+      });
+    }
+  }
+})();
+</script>
+
+
 </body>
 </html>

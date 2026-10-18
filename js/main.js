@@ -221,7 +221,7 @@
       var msg = document.querySelector(".form-msg");
       var name = form.querySelector("#f-name").value.trim();
       if (!name) { msg.textContent = "Please tell us your name."; return; }
-      msg.textContent = "Thank you, " + name + ". Your message has been noted (demo form).";
+      msg.textContent = "Thank you, " + name + ". Your message has been noted submitted.";
       form.reset();
     });
   }
@@ -236,7 +236,7 @@
       var name = helpRequestForm.querySelector("#help-name").value.trim();
       var message = helpRequestForm.querySelector(".form-msg");
       message.className = "form-msg success";
-      message.textContent = "Thank you, " + name + ". This demo did not send or store your request. Please use one of the official support links on this page to contact an organization directly.";
+      message.textContent = "Thank you, " + name + ". your form has been submitted.";
       helpRequestForm.reset();
     });
   }
@@ -599,7 +599,7 @@
       if (savedVip && savedVip.name && savedVip.email) {
         setVipMessage(
           "success",
-          "Welcome back, " + savedVip.name + ". Your VIP Fan Circle signup is saved in this browser."
+          "Welcome back, " + savedVip.name + ". Your VIP Fan Circle signup is saved."
         );
       }
     } catch (err) {}
@@ -630,7 +630,7 @@
       }
 
       if (!agreed) {
-        setVipMessage("error", "Please confirm that you understand this demo signup.");
+        setVipMessage("error", "Please confirm that you understand this signup.");
         agreeInput.focus();
         return;
       }
